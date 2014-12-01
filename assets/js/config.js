@@ -1,1 +1,1 @@
-var _HOST = 'http://tstbtracserver.com.br';
+var _HOST = 'http://ct.bsoft.com.br:8080';

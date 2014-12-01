@@ -3,7 +3,7 @@ $(document).ready(function(){
 	$('#btnConectar').on('click', function(){
 		if( $('#LOGIN').val().trim() != '' && $('#SENHA').val().trim() != '' ){
 			abrirCarregando('Verificando Login');
-			alert($('#frmLogin').serialize());
+			alert('jquery');
 			$.post( _HOST+'/control/validaLogin.php'
 				  , $('#frmLogin').serialize()
 				  , function(data){
