@@ -173,6 +173,8 @@ VeiculosController.prototype = {
     }
 };
 
+var LogoffController = function() {};
+
 LogoffController.prototype = {
     initialize: function() {
         alert('init');
