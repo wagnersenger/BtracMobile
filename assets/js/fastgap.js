@@ -177,7 +177,7 @@ var LogoffController = function() {};
 
 LogoffController.prototype = {
     initialize: function() {
-        alert('init');
+        
     },
     destroy: function() {
         // unset events
