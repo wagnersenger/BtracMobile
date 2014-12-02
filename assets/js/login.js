@@ -3,11 +3,11 @@ $(document).ready(function(){
 	$('#btnConectar').on('click', function(){
 		if( $('#LOGIN').val().trim() != '' && $('#SENHA').val().trim() != '' ){
 			abrirCarregando('Verificando Login');
-			alert('jquery');
+			
 			$.post( _HOST+'/control/validaLogin.php'
 				  , $('#frmLogin').serialize()
 				  , function(data){
-						alert(data);
+			
 				  		v_obj = JSON.parse(data);
 				  		
 				  	    if(v_obj.error == true){

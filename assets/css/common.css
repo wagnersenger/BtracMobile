@@ -113,14 +113,14 @@ and open the template in the editor.
 .listaVeiculos > li{
     height: 60px;
     width: 100px;
-    background-image: url('/assets/img/bg_veiculos.jpg');
+    background-image: url('assets/img/bg_veiculos.jpg');
     background-repeat: repeat-x;
 }
 
 .dv_listaVeiculos{
     height: 60px;
     width: 100%;
-    background-image: url('/assets/img/background/bg_veiculos.jpg');
+    background-image: url('assets/img/background/bg_veiculos.jpg');
     background-repeat: repeat-x;
     margin-top:1px;
     margin-left:0px;
@@ -134,7 +134,7 @@ and open the template in the editor.
     position: absolute;
     right: 20px;
     margin-top: 16px;
-    background-image: url('/assets/img/mundo.png');
+    background-image: url('assets/img/mundo.png');
     background-repeat: no-repeat;
     
 }
@@ -323,7 +323,7 @@ span{
 .carregandoScroll{ 
     height: 60px;
     width: 100%;
-    background-image: url('/assets/img/background/bg_veiculos.jpg');
+    background-image: url('assets/img/background/bg_veiculos.jpg');
     background-repeat: repeat-x;
     margin-top:1px;
     margin-left:0px;
