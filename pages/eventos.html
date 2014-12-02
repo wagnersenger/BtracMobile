@@ -86,10 +86,10 @@
     		consultando = 1;
 
     		if(p_continuacao != 1)
-    			abrirCarregando('Buscando Posições');
+    			abrirCarregando('Buscando Eventos');
 
     		if(p_inicio > 0 )
-    			$('#internal-page').append('<div class="carregandoScroll"><img src="../img/loading.gif" height="16px">&nbsp;Carregando...</div>');
+    			$('#internal-page').append('<div class="carregandoScroll"><img src="assets/img/loading.gif" height="16px">&nbsp;Carregando...</div>');
 
 	    	$.post( _HOST+'/admin/veiculos/getEventos.php'
 				  , { EMPRESA_ID: localStorage.getItem('BTRAC_EMPRESA_ID')
