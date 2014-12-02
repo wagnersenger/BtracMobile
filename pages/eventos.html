@@ -5,13 +5,13 @@
 
 <div id="internal-page">
 	<div class="conteudoInterno">
-		<h3 class="titulo"><img src="/assets/img/right.png" height="16" >Selecione um ve&iacute;culo:</h3>
+		<h3 class="titulo"><img src="../img/right.png" height="16" >Selecione um ve&iacute;culo:</h3>
 		<label class="labelInput">Placa:&nbsp;</label><select id="veiculo_id" class="field" onchange="trocarVeiculo()"></select>
 	</div>
 	<input type="hidden" id="totalRegistros">
 	<div class="carregando" id="carregando"></div>
 	<div class="carregando_centro" id="carregando_centro">
-	    <div style="margin:auto; width:20px; margin-top:28px; margin-bottom: 10px"><img src="/assets/img/loading.gif" width="20px"></div>
+	    <div style="margin:auto; width:20px; margin-top:28px; margin-bottom: 10px"><img src="../img/loading.gif" width="20px"></div>
 	    <div style="margin:auto; font-size: 14px; text-align: center"><label id="carregando_item">Carregando</label></div>
 	</div>
 	<div class="mapa" id="mapa" >
@@ -89,7 +89,7 @@
     			abrirCarregando('Buscando Posições');
 
     		if(p_inicio > 0 )
-    			$('#internal-page').append('<div class="carregandoScroll"><img src="/assets/img/loading.gif" height="16px">&nbsp;Carregando...</div>');
+    			$('#internal-page').append('<div class="carregandoScroll"><img src="../img/loading.gif" height="16px">&nbsp;Carregando...</div>');
 
 	    	$.post( _HOST+'/admin/veiculos/getEventos.php'
 				  , { EMPRESA_ID: localStorage.getItem('BTRAC_EMPRESA_ID')
