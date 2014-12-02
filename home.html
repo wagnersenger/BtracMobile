@@ -1,75 +1,81 @@
-<link href="assets/css/common.css" rel="stylesheet" />
-<link href="assets/css/localizacao.css" rel="stylesheet" />
-<script src="assets/js/config.js"></script>
-<script src="assets/js/common.js"></script>
+<!DOCTYPE html>
+<html lang="pt-br">
 
-<div id="internal-page">
-	<div id="map"></div>
-</div>
+<head>
+	<meta charset="UTF-8" />
 
-<script>
- 	$(document).ready( function() {
-        $('#lblTituloPagina').html('Localiza&ccedil;&atilde;o de Ve&iacute;culos');
+	<!-- Styles -->
+	<!-- Topcoat mobile -->
+	<link rel="stylesheet" href="assets/css/topcoat-mobile-light.min.css" />
+	<!-- Snap -->
+	<link rel="stylesheet" href="assets/css/snap.css" />
+	<!-- Fastgap base style -->
+	<link rel="stylesheet" href="assets/css/fastgap.min.css" />
+	<!-- Your custom style -->
+	<link rel="stylesheet" href="assets/css/style.css" />
+	<link rel="stylesheet" href="assets/css/common.css" />
 
- 	 	gMaps = new GoogleMaps();
- 		gMaps.htmlId = 'map';
- 		gMaps.initialize();
+	<!-- Javascripts -->
+	<!--<script src="../dist/js/fastgap.controllers.js"></script>-->
+	<!--<script src="../dist/js/fastgap.libs.js"></script>-->
+	<!--<script src="../dist/js/fastgap.core.js"></script>-->
+	<script src="assets/js/fastgap.js"></script>
+	<script src="assets/js/vendors/zepto.min.js"></script>
+	<script src="assets/js/maps_api.js"></script>
+	<script src="assets/js/maps.js"></script>
+	<script src="assets/js/config.js"></script>
+	<!--<script src="assets/js/vendors/jquery.js" type="text/javascript"></script>-->
+	<script src="assets/js/common.js"></script>
+	<!-- VIEWPORT -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>Btrac, rastreamento de ve&iacute;culost</title>
+</head>
 
-        abrirCarregando('Carregando Veículos');
+<body>
+	<!-- BOX CONTENT LOAD PAGES WITH AJAX-->
+	<div id="page">
+		<div class="snap-drawers">
+			<!-- MENU -->
+			<menu id="menu">
+				<div class="topcoat-list" id="menu-content">
+					<ul class="topcoat-list__container">
+						<li class="topcoat-list__item botoes-app" data-url="home.html" data-controler='HomeController' >
+							<div class="iconMenu"><img src="assets/img/marker9.png" style="vertical-align:-5px"  ></div>&nbsp;Localiza&ccedil;&atilde;o
+						</li>
+						<li class="topcoat-list__item botoes-app" data-url="veiculos.html" data-controler='VeiculosController'>
+							<div class="iconMenu"><img src="assets/img/truck3.png" style="vertical-align:-4px"  ></div>&nbsp;Ve&iacute;culos
+						</li>
+						<li class="topcoat-list__item botoes-app" data-url="posicoes.html" data-controler='PosicoesController' align="absmiddle">
+							<div class="iconMenu"><img src="assets/img/lista1.png" style="vertical-align:-4px"  ></div>&nbsp;Posi&ccedil;&otilde;es
+						</li>
+						<li class="topcoat-list__item botoes-app" data-url="eventos.html" data-controler='EventosController'>
+							<div class="iconMenu"><img src="assets/img/atention.png" style="vertical-align:-4px"  ></div>&nbsp;Eventos
+						</li>
+						<li class="topcoat-list__item botoes-app" data-url="logoff.html" data-controler='LogoffController'>
+							<div class="iconMenu"><img src="assets/img/sair.png" style="vertical-align:-4px"  ></div>&nbsp;Sair
+						</li>
+					</ul>
+				</div>
+			</menu>
+		</div>
 
-		$.post( _HOST+'/admin/veiculos/getVeiculos.php'
-			  , { EMPRESA_ID: localStorage.getItem('BTRAC_EMPRESA_ID')
-			  	, LOGIN:localStorage.getItem('BTRAC_LOGIN')
-			  	, SENHA:localStorage.getItem('BTRAC_SENHA')	}
-			  , function(data){
-			  		$('#internal-page').append(data);
-                    fecharCarregando();
-                    
-                    getNextLocation();
-			  });
+		<!-- DYNAMIC CONTENT -->
+		<div id="content" class="snap-content">
+			<!-- HEADER -->
+			<header id="header-app">
+				<!-- APP IMG LOAD WITH CSS -->
+				<div id="menu-button"></div>
+				<label id="lblTituloPagina"></label>
+			</header>
+			<!-- load content here -->
+			<div id="scroll" class="overthrow"></div>
+		</div>
+		<div class="carregando" id="carregando"></div>
+        <div class="carregando_centro" id="carregando_centro">
+            <div style="margin:auto; width:20px; margin-top:28px; margin-bottom: 10px"><img src="/assets/img/loading.gif" width="20px" ></div>
+            <div style="margin:auto; font-size: 14px; text-align: center"><label id="carregando_item">Carregando</label></div>
+        </div>
+	</div>
+</body>
 
-    });
-
-    var currentMarkerLocation = 0;
-    function getNextLocation(){
-        if(currentMarkerLocation < v_markers.length){
-            if( v_markers[currentMarkerLocation].localizacao == ''){
-                displayLocation(v_markers[currentMarkerLocation].latitude,v_markers[currentMarkerLocation].longitude, v_markers[currentMarkerLocation].veiculo_id);
-            }
-            currentMarkerLocation++;
-        }
-    }
-
-    function displayLocation(latitude,longitude, veiculo_id){
-        $('#address'+veiculo_id).html( 'Atualizando...' );
-        r = '';
-        var url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+latitude+','+longitude+'&sensor=true';
-
-        $.ajax({
-          url: url,
-          dataType: 'json',
-          async: true,
-          success: function(data) {
-                if(data.status == 'OK' ){
-                    var address = data.results[0];
-                    var cidade = address.address_components[3].long_name;
-                    var estado = address.address_components[5].short_name;
-                    
-                    endereco = address.address_components[1].long_name+ ', '+cidade+' - '+estado;
-                    
-                    $('#address'+veiculo_id).html( endereco );
-
-                    getNextLocation();
-                    $.post( _HOST+'/admin/veiculos/control.php'
-                          , { EXECUCAO:5
-                            , VEICULO_ID: veiculo_id
-                            , ENDERECO: endereco
-                            , LOGIN:localStorage.getItem('BTRAC_LOGIN')
-                            , SENHA:localStorage.getItem('BTRAC_SENHA') }
-                          , function(data) {});
-                    
-                }
-          }
-        });
-    };
- </script>
+</html>
