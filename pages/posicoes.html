@@ -110,7 +110,7 @@
     function abrirMapa(p_veiculo_id, p_icon, p_latitude, p_longitude, p_placa, p_data, p_cidade, p_proximidade, p_velocidade, p_situacao, p_obj_div){
     	document.getElementById('carregando').style.display = 'block';
     	document.getElementById('mapa').style.display = 'block';
-		alert(p_icon);
+		
     	gMaps = new GoogleMaps();
  		gMaps.htmlId = 'positionMap';
  		gMaps.zoom = 15;
@@ -122,7 +122,6 @@
  		$('#mapa').css('top', document.getElementById('scroll').scrollTop );
 
  		$('.carregando').css('height', $('#internal-page').height() );
-
 		
  		document.getElementById('td_placa').innerHTML = p_placa;
  		document.getElementById('td_data_hora').innerHTML = p_data;
@@ -130,9 +129,7 @@
  		document.getElementById('td_proximidade').innerHTML = p_proximidade;
  		document.getElementById('td_velocidade').innerHTML = p_velocidade+' km/h';
  		document.getElementById('td_situacao').innerHTML = p_situacao;
- 		
- 		
- 		//alert(document.getElementById('mapa').style.top);
+
     }
 
     function fecharPosicaoVeiculo(){

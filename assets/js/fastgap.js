@@ -172,6 +172,18 @@ VeiculosController.prototype = {
         PageLoad.ajxHandle = null;
     }
 };
+
+LogoffController.prototype = {
+    initialize: function() {
+        alert('init');
+    },
+    destroy: function() {
+        // unset events
+        // stop ajax
+        // destroy components
+        PageLoad.ajxHandle = null;
+    }
+};
 /* Zepto v1.1.3 - zepto event ajax form ie - zeptojs.com/license */
 
 
