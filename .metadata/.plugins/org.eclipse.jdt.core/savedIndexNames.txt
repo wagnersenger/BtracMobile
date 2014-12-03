@@ -1,4 +1,0 @@
-INDEX VERSION 1.126+D:\BSoft\SVN\BTrac\Sistema\branches\Desenvolvimento\mobile\btrac\www\.metadata\.plugins\org.eclipse.jdt.core
-4090004471.index
-1528199135.index
-210776939.index
