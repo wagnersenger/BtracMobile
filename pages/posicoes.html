@@ -130,17 +130,18 @@
  		document.getElementById('td_velocidade').innerHTML = p_velocidade+' km/h';
  		document.getElementById('td_situacao').innerHTML = p_situacao;
 
- 		$(html).css('overflow','hidden');
- 		$(body).css('overflow','hidden');
+ 		document.style.overflow = 'hidden';
+ 		//$(html).css('overflow','hidden');
+ 		//$(body).css('overflow','hidden');
 
     }
 
     function fecharPosicaoVeiculo(){
     	document.getElementById('carregando').style.display = 'none';
     	document.getElementById('mapa').style.display = 'none';
-    	
-    	$(html).css('overflow','auto');
- 		$(body).css('overflow','auto');
+
+    	//$(html).css('overflow','auto');
+ 		//$(body).css('overflow','auto');
 
     }
 </script>
