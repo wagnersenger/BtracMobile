@@ -129,12 +129,12 @@
  		document.getElementById('td_proximidade').innerHTML = p_proximidade;
  		document.getElementById('td_velocidade').innerHTML = p_velocidade+' km/h';
  		document.getElementById('td_situacao').innerHTML = p_situacao;
- 		alert( $(html).css('overflow') );
- 		$(html).css('overflow','hidden');
+ 		alert( $('#html').css('overflow') );
+ 		$('#html').css('overflow','hidden');
 
- 		$(body).css('overflow','hidden');
+ 		$('#body').css('overflow','hidden');
  		
- 		alert( $(body).css('overflow') );
+ 		alert( $('#body').css('overflow') );
  		//document.getElementById('html').style.overflow = 'hidden';
  		//document.getElementById('body').style.overflow = 'hidden';
  		//$(html).css('overflow','hidden');
@@ -145,11 +145,11 @@
     function fecharPosicaoVeiculo(){
     	document.getElementById('carregando').style.display = 'none';
     	document.getElementById('mapa').style.display = 'none';
-    	alert( $(html).css('overflow') );
-    	$(html).css('overflow','auto');
- 		$(body).css('overflow','auto');
+    	alert( $('#html').css('overflow') );
+    	$('#html').css('overflow','auto');
+ 		$('#body').css('overflow','auto');
 
- 		alert( $(body).css('overflow') );
+ 		alert( $('#body').css('overflow') );
 
     	//document.getElementById('html').style.overflow = 'auto';
  		//document.getElementById('body').style.overflow = 'auto';
