@@ -7,7 +7,7 @@ $(document).ready(function(){
 			$.post( _HOST+'/control/validaLogin.php'
 				  , $('#frmLogin').serialize()
 				  , function(data){
-						alert(data);
+
 				  		v_obj = JSON.parse(data);
 				  		
 				  	    if(v_obj.error == true){
@@ -22,7 +22,7 @@ $(document).ready(function(){
 				  	    	localStorage.setItem('BTRAC_APELIDO', v_obj.apelido );
 				  	    	localStorage.setItem('BTRAC_EMAIL', v_obj.email );
 				  	    	localStorage.setItem('BTRAC_TIPO', v_obj.tipo );
-				  	    	alert( $(html).css('overflow') );
+
 				  	    	fecharCarregando();
 				  	    	window.location = 'home.html';
 				  	    }

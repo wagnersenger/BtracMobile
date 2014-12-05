@@ -130,8 +130,10 @@
  		document.getElementById('td_velocidade').innerHTML = p_velocidade+' km/h';
  		document.getElementById('td_situacao').innerHTML = p_situacao;
 
- 		document.getElementById('html').style.overflow = 'hidden';
- 		document.getElementById('body').style.overflow = 'hidden';
+ 		$(html).css('overflow','hidden');
+ 		$(body).css('overflow','hidden');
+ 		//document.getElementById('html').style.overflow = 'hidden';
+ 		//document.getElementById('body').style.overflow = 'hidden';
  		//$(html).css('overflow','hidden');
  		//$(body).css('overflow','hidden');
 
@@ -140,9 +142,12 @@
     function fecharPosicaoVeiculo(){
     	document.getElementById('carregando').style.display = 'none';
     	document.getElementById('mapa').style.display = 'none';
-    	
-    	document.getElementById('html').style.overflow = 'auto';
- 		document.getElementById('body').style.overflow = 'auto';
+
+    	$(html).css('overflow','auto');
+ 		$(body).css('overflow','auto');
+
+    	//document.getElementById('html').style.overflow = 'auto';
+ 		//document.getElementById('body').style.overflow = 'auto';
 
     	//$(html).css('overflow','auto');
  		//$(body).css('overflow','auto');
