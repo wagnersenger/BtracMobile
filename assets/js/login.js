@@ -22,7 +22,7 @@ $(document).ready(function(){
 				  	    	localStorage.setItem('BTRAC_APELIDO', v_obj.apelido );
 				  	    	localStorage.setItem('BTRAC_EMAIL', v_obj.email );
 				  	    	localStorage.setItem('BTRAC_TIPO', v_obj.tipo );
-				  	    	alert(document.getElementById('html').style.overflow);
+				  	    	alert( $(html).css('overflow') );
 				  	    	fecharCarregando();
 				  	    	window.location = 'home.html';
 				  	    }
