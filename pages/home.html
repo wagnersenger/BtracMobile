@@ -19,15 +19,16 @@
  	 	gMaps = new GoogleMaps();
  		gMaps.htmlId = 'map';
  		gMaps.initialize();
-
+        alert('antes carregando');
         abrirCarregando('Carregando Veículos');
-
+        alert('apos carregando');
 		$.post( _HOST+'/admin/veiculos/getVeiculos.php'
 			  , { EMPRESA_ID: localStorage.getItem('BTRAC_EMPRESA_ID')
 			  	, LOGIN:localStorage.getItem('BTRAC_LOGIN')
 			  	, SENHA:localStorage.getItem('BTRAC_SENHA')	}
 			  , function(data){
 			  		$('#internal-page').append(data);
+                    alert('antes de fechar ');
                     fecharCarregando();
                     
                     getNextLocation();
