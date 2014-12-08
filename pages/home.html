@@ -5,8 +5,8 @@
 
 <div id="internal-page">
 	<div id="map"></div>
-    <div class="carregando" id="carregando"></div>
-    <div class="carregando_centro" id="carregando_centro" style="border:1px solid #f00" >
+    <div class="carregando" id="carregando"  style="border:1px solid #f00"></div>
+    <div class="carregando_centro" id="carregando_centro" >
         <div style="margin:auto; width:20px; margin-top:28px; margin-bottom: 10px"><img src="assets/img/loading.gif" width="20px"></div>
         <div style="margin:auto; font-size: 14px; text-align: center"><label id="carregando_item">Carregando</label></div>
     </div>
@@ -19,16 +19,16 @@
  	 	gMaps = new GoogleMaps();
  		gMaps.htmlId = 'map';
  		gMaps.initialize();
-        alert('antes carregando');
+        
         abrirCarregando('Carregando Veículos');
-        alert('apos carregando');
+        
 		$.post( _HOST+'/admin/veiculos/getVeiculos.php'
 			  , { EMPRESA_ID: localStorage.getItem('BTRAC_EMPRESA_ID')
 			  	, LOGIN:localStorage.getItem('BTRAC_LOGIN')
 			  	, SENHA:localStorage.getItem('BTRAC_SENHA')	}
 			  , function(data){
 			  		$('#internal-page').append(data);
-                    alert('antes de fechar ');
+        
                     fecharCarregando();
                     
                     getNextLocation();
