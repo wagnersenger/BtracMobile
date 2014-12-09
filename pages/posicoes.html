@@ -2,7 +2,11 @@
 <link href="/assets/css/localizacao.css" rel="stylesheet" />
 <script src="assets/js/config.js"></script>
 <script src="assets/js/common.js"></script>
-
+<style>
+	#mapa{
+		position: relative;
+	}
+</style>
 <div id="internal-page">
 	<div class="conteudoInterno">
 		<h3 class="titulo"><img src="assets/img/right.png" height="16" >Selecione um ve&iacute;culo:</h3>
@@ -77,7 +81,7 @@
     }
 
     var consultando = 0;
-    function getPosicoes(p_inicio, p_continuacao){    	
+    function getPosicoes(p_inicio, p_continuacao){
     	if(consultando == 0){
     		consultando = 1;
 
@@ -122,19 +126,19 @@
  		$('#mapa').css('top', document.getElementById('scroll').scrollTop );
 
  		$('.carregando').css('height', $('#internal-page').height() );
-		alert( 'mapa' );
+		//alert( 'mapa' );
  		document.getElementById('td_placa').innerHTML = p_placa;
  		document.getElementById('td_data_hora').innerHTML = p_data;
  		document.getElementById('td_cidade').innerHTML = p_cidade;
  		document.getElementById('td_proximidade').innerHTML = p_proximidade;
  		document.getElementById('td_velocidade').innerHTML = p_velocidade+' km/h';
  		document.getElementById('td_situacao').innerHTML = p_situacao;
- 		alert( $('#html').css('overflow') );
- 		$('#html').css('overflow','hidden');
+ 		//alert( $('#html').css('overflow') );
+ 		//$('#html').css('overflow','hidden');
 
- 		$('#body').css('overflow','hidden');
+ 		//$('#body').css('overflow','hidden');
  		
- 		alert( $('#body').css('overflow') );
+ 		//alert( $('#body').css('overflow') );
  		//document.getElementById('html').style.overflow = 'hidden';
  		//document.getElementById('body').style.overflow = 'hidden';
  		//$(html).css('overflow','hidden');
