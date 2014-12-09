@@ -129,7 +129,7 @@
 
  		$('#mapa').css('top', document.getElementById('scroll').scrollTop );
  		$('.carregando').css('height', $('#internal-page').height() );
- 		alert( $('#scroll').css('overflow') );
+
  		$('#scroll').css('overflow','hidden');
 		
  		document.getElementById('td_placa').innerHTML = p_placa;
@@ -144,5 +144,6 @@
     function fecharPosicaoVeiculo(){
     	document.getElementById('carregando').style.display = 'none';
     	document.getElementById('mapa').style.display = 'none';
+    	$('#scroll').css('overflow','auto');
     }
 </script>
