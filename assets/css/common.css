@@ -263,7 +263,7 @@ select #veiculo_id{
 
 .mapa{
     position: absolute;
-    margin-top: 250px;
+    
     width: 90%;
     min-height: 350px;
     margin-left:5%;
