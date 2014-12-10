@@ -263,15 +263,15 @@ select #veiculo_id{
 
 .mapa{
     position: absolute;
-    margin-top: 50px;
-    width: 90%;    
+    margin-top: 250px;
+    width: 90%;
     min-height: 350px;
     margin-left:5%;
     background-color: #fff;
     z-index: 9999;
     border-radius: 10px;
     color:#FFF;
-    display:none ;
+    display:none;
 }
 
 #positionMap{
