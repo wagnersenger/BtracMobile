@@ -2,11 +2,7 @@
 <link href="/assets/css/localizacao.css" rel="stylesheet" />
 <script src="assets/js/config.js"></script>
 <script src="assets/js/common.js"></script>
-<style>
-	#positionMap{
-		/*position: absolute;*/
-	}
-</style>
+
 <div id="internal-page">
 	<div class="conteudoInterno">
 		<h3 class="titulo"><img src="assets/img/right.png" height="16" >Selecione um ve&iacute;culo:</h3>
@@ -142,7 +138,7 @@
  		//alert( $('#mapa').offset().top );
  		//alert( $('#positionMap').offset().top );
  		$('#positionMap').offset({ top: 100 });
- 		setTimeout(trocarOverflow, 5000);
+ 		//setTimeout(trocarOverflow, 5000);
  		//alert( $('#positionMap').offset().top );
  		//alert( $('#positionMap').css('position') );
  		//$('#positionMap').css('position','fixed');
@@ -159,5 +155,6 @@
     function trocarOverflow(){
     	alert('trocando');
     	$('#scroll').css('overflow','hidden');
+    	alert($('#mapa').offset().top);
     }
 </script>
