@@ -2,7 +2,11 @@
 <link href="/assets/css/localizacao.css" rel="stylesheet" />
 <script src="assets/js/config.js"></script>
 <script src="assets/js/common.js"></script>
-
+<style>
+	#positionMap{
+		position: fixed;
+	}
+</style>
 <div id="internal-page">
 	<div class="conteudoInterno">
 		<h3 class="titulo"><img src="assets/img/right.png" height="16" >Selecione um ve&iacute;culo:</h3>
@@ -130,8 +134,8 @@
  		document.getElementById('td_proximidade').innerHTML = p_proximidade;
  		document.getElementById('td_velocidade').innerHTML = p_velocidade+' km/h';
  		document.getElementById('td_situacao').innerHTML = p_situacao;
- 		alert( $('#positionMap').css('top') );
- 		alert( $('#positionMap').css('position') );
+ 		//alert( $('#positionMap').css('top') );
+ 		//alert( $('#positionMap').css('position') );
 
     }
 
