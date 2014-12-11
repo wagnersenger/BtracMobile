@@ -142,9 +142,7 @@
  		//alert( $('#mapa').offset().top );
  		//alert( $('#positionMap').offset().top );
  		$('#positionMap').offset({ top: 100 });
- 		alert('auto');
- 		$('#scroll').css('overflow','hidden');
- 		alert('hidden');
+ 		setTimeout(5000,trocarOverflow);
  		//alert( $('#positionMap').offset().top );
  		//alert( $('#positionMap').css('position') );
  		//$('#positionMap').css('position','fixed');
@@ -156,5 +154,10 @@
     	document.getElementById('carregando').style.display = 'none';
     	document.getElementById('mapa').style.display = 'none';
     	$('#scroll').css('overflow','auto');
+    }
+
+    function trocarOverflow(){
+    	alert('trocando');
+    	$('#scroll').css('overflow','hidden');
     }
 </script>
