@@ -137,7 +137,7 @@
 
  		//alert( $('#mapa').offset().top );
  		//alert( $('#positionMap').offset().top );
- 		$('#positionMap').offset({ top: 100 });
+ 		
  		setTimeout(trocarOverflow, 5000);
  		//alert( $('#positionMap').offset().top );
  		//alert( $('#positionMap').css('position') );
@@ -156,6 +156,7 @@
     	alert('trocando');
     	$('#scroll').css('overflow','hidden');
     	$('#mapa').offset({ top: 100 });
+    	$('#positionMap').offset({ top: $('#mapa').offset().top });
     	alert($('#mapa').offset().top);
     }
 </script>
