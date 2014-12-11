@@ -136,6 +136,9 @@
  		document.getElementById('td_velocidade').innerHTML = p_velocidade+' km/h';
  		document.getElementById('td_situacao').innerHTML = p_situacao;
  		
+ 		$('#scroll').css('overflow','hidden');
+    	$('#mapa').offset({ top: 50 });
+    	$('#positionMap').offset({ top: $('#mapa').offset().top });
  		
  		//alert(document.getElementById('mapa').style.top);
     }
@@ -143,5 +146,7 @@
     function fecharPosicaoVeiculo(){
     	document.getElementById('carregando').style.display = 'none';
     	document.getElementById('mapa').style.display = 'none';
+
+    	$('#scroll').css('overflow','auto');
     }
 </script>
