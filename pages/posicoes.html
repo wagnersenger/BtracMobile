@@ -4,7 +4,7 @@
 <script src="assets/js/common.js"></script>
 <style>
 	#positionMap{
-		position: fixed;
+		/*position: fixed !important;*/
 	}
 </style>
 <div id="internal-page">
@@ -134,8 +134,12 @@
  		document.getElementById('td_proximidade').innerHTML = p_proximidade;
  		document.getElementById('td_velocidade').innerHTML = p_velocidade+' km/h';
  		document.getElementById('td_situacao').innerHTML = p_situacao;
- 		//alert( $('#positionMap').css('top') );
- 		alert( $('#positionMap').css('position') );
+ 		
+ 		alert( $('#mapa').offset().top );
+ 		alert( $('#positionMap').offset().top );
+ 		//alert( $('#positionMap').css('position') );
+ 		//$('#positionMap').css('position','fixed');
+ 		//alert( $('#positionMap').css('position') );
 
     }
 
