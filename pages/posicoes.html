@@ -135,8 +135,12 @@
  		document.getElementById('td_velocidade').innerHTML = p_velocidade+' km/h';
  		document.getElementById('td_situacao').innerHTML = p_situacao;
  		
- 		alert( $('#mapa').offset().top );
- 		alert( $('#positionMap').offset().top );
+ 		v_obj = document.getElementById("positionMap");
+ 		alert(v_obj.offsetTop);
+ 		v_obj.offsetTop = v_obj.offsetTop - 10;
+
+ 		//alert( $('#mapa').offset().top );
+ 		//alert( $('#positionMap').offset().top );
  		//alert( $('#positionMap').css('position') );
  		//$('#positionMap').css('position','fixed');
  		//alert( $('#positionMap').css('position') );
