@@ -140,9 +140,11 @@
  		//v_obj.offsetTop = 110;
 
  		//alert( $('#mapa').offset().top );
- 		alert( $('#positionMap').offset().top );
+ 		//alert( $('#positionMap').offset().top );
  		$('#positionMap').offset({ top: 100 });
- 		alert( $('#positionMap').offset().top );
+ 		$('#scroll').css('overflow','hidden');
+ 		
+ 		//alert( $('#positionMap').offset().top );
  		//alert( $('#positionMap').css('position') );
  		//$('#positionMap').css('position','fixed');
  		//alert( $('#positionMap').css('position') );
@@ -152,6 +154,6 @@
     function fecharPosicaoVeiculo(){
     	document.getElementById('carregando').style.display = 'none';
     	document.getElementById('mapa').style.display = 'none';
-    	//$('#scroll').css('overflow','auto');
+    	$('#scroll').css('overflow','auto');
     }
 </script>
