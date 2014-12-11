@@ -132,13 +132,17 @@
  		document.getElementById('td_situacao').innerHTML = p_situacao;
  		
  		v_obj = document.getElementById("positionMap");
+
+ 		$('#scroll').css('overflow','hidden');
+    	$('#mapa').offset({ top: 50 });
+    	$('#positionMap').offset({ top: $('#mapa').offset().top });
  		//alert(v_obj.offsetTop);
  		//v_obj.offsetTop = 110;
 
  		//alert( $('#mapa').offset().top );
  		//alert( $('#positionMap').offset().top );
  		
- 		setTimeout(trocarOverflow, 5000);
+ 		//setTimeout(trocarOverflow, 5000);
  		//alert( $('#positionMap').offset().top );
  		//alert( $('#positionMap').css('position') );
  		//$('#positionMap').css('position','fixed');
@@ -155,7 +159,7 @@
     function trocarOverflow(){
     	alert('trocando');
     	$('#scroll').css('overflow','hidden');
-    	$('#mapa').offset({ top: 100 });
+    	$('#mapa').offset({ top: 50 });
     	$('#positionMap').offset({ top: $('#mapa').offset().top });
     	alert($('#mapa').offset().top);
     }
