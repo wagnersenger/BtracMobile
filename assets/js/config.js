@@ -1,1 +1,1 @@
-var _HOST = 'http://ct.bsoft.com.br:8080';
+var _HOST = 'http://sistema.btrac.com.br';
