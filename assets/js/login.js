@@ -15,8 +15,6 @@ $(document).ready(function(){
 				  	    	$('.lb_error').html(v_obj.system_message);
 				  	    	fecharCarregando();
 				  	    }else{
-							alert('1');
-							alert(v_obj.usuario);
 				  	    	localStorage.setItem('BTRAC_LOGIN',v_obj.usuario);
 				  	    	localStorage.setItem('BTRAC_SENHA',$('#SENHA').val());
 				  	    	localStorage.setItem('BTRAC_NOME',v_obj.nome);
