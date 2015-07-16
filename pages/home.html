@@ -15,11 +15,9 @@
 <script>
  	$(document).ready( function() {
         $('#lblTituloPagina').html('Localiza&ccedil;&atilde;o de Ve&iacute;culos');
-		alert('inicializando');
- 	 	
         
         abrirCarregando('Carregando Veículos');
-        alert( _HOST+'/admin/veiculos/getVeiculos.php' );
+
 		$.post( _HOST+'/admin/veiculos/getVeiculos.php'
 			  , { EMPRESA_ID: localStorage.getItem('BTRAC_EMPRESA_ID')
 			  	, LOGIN:localStorage.getItem('BTRAC_LOGIN')
