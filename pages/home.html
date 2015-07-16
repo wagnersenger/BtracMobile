@@ -16,9 +16,7 @@
  	$(document).ready( function() {
         $('#lblTituloPagina').html('Localiza&ccedil;&atilde;o de Ve&iacute;culos');
 		alert('inicializando');
- 	 	gMaps = new GoogleMaps();
- 		gMaps.htmlId = 'map';
- 		gMaps.initialize();
+ 	 	
         
         abrirCarregando('Carregando Veículos');
         alert( _HOST+'/admin/veiculos/getVeiculos.php' );
@@ -33,6 +31,10 @@
                     
                     getNextLocation();
 			  });
+			  
+		gMaps = new GoogleMaps();
+ 		gMaps.htmlId = 'map';
+ 		gMaps.initialize();
 
     });
 
