@@ -10,10 +10,10 @@
     <content src="index.html" />
     
 	<icon gap:platform="ios" height="57" src="icons/ios/Icon.png" width="57" />
-	<icon gap:platform="ios" height="72" src="icons/ios/Icon-72.jpg" width="72" />
-	<icon gap:platform="ios" height="76" src="icons/ios/Icon-76.jpg" width="76" />
-	<icon gap:platform="ios" height="120" src="icons/ios/Icon-120.jpg" width="120" />
-	<icon gap:platform="ios" height="152" src="icons/ios/Icon-76@2x.jpg" width="152" />
+	<icon gap:platform="ios" height="72" src="icons/ios/Icon-72.png" width="72" />
+	<icon gap:platform="ios" height="76" src="icons/ios/Icon-76.png" width="76" />
+	<icon gap:platform="ios" height="120" src="icons/ios/Icon-120.png" width="120" />
+	<icon gap:platform="ios" height="152" src="icons/ios/Icon-76@2x.png" width="152" />
 	
 	
     <access origin="*" />
