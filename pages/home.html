@@ -13,13 +13,15 @@
 </div>
 
 <script>
-	document.addEventListener("resume", onResume, false);
+	
 
 	function onResume() {
 		alert('resumindo');
 	}
 
  	$(document).ready( function() {
+		document.addEventListener("resume", onResume, false);
+		alert('adicionado resumo');
         $('#lblTituloPagina').html('Localiza&ccedil;&atilde;o de Ve&iacute;culos');
         
         abrirCarregando('Carregando Veículos');
