@@ -52,6 +52,15 @@ and open the template in the editor.
     line-height: 65px; 
 }
 
+@media (max-width: 350px) {
+	#lblTituloPagina{
+		font-size:17px;
+	}
+	#menu-button{
+		background-size:30px;
+	}
+}
+
 .footer{
     width:100%;
     height:35px;
@@ -139,22 +148,37 @@ and open the template in the editor.
     
 }
 
-.veiculoIconeBus{
+.dataPosicao{
+	color: #093;
     float: left;
+    font-size: 12px;
+    font-weight: bold;
+    height: auto;
+    padding: 18px 0 0 8px;
+    width: 40px;
+}
+
+.veiculoIconeBus, .veiculoIconeTruck, .veiculoIconeBoat{
+	width:30px;
+	padding:10px 0px;
+	float: right;
+}
+
+.veiculoIconeBus{
     margin:11px 8px;
 }
 
 .veiculoIconeTruck{
-    float: left;
-    margin:7px 8px;
+    margin:7px 8px;	
 }
 .veiculoIconeCar{
-    float: left;
     margin:13px 8px;
+	width:30px;
+	padding:8px 0px;
+	float: right;
 }
 
 .veiculoIconeBoat{
-    float: left;
     margin:13px 8px;
 }
 

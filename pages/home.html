@@ -13,6 +13,12 @@
 </div>
 
 <script>
+	document.addEventListener("resume", onResume, false);
+
+	function onResume() {
+		alert('resumindo');
+	}
+
  	$(document).ready( function() {
         $('#lblTituloPagina').html('Localiza&ccedil;&atilde;o de Ve&iacute;culos');
         
