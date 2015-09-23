@@ -1,5 +1,6 @@
 <link href="assets/css/common.css" rel="stylesheet" />
 <link href="assets/css/localizacao.css" rel="stylesheet" />
+<script src="assets/js/cordova.js"></script>
 <script src="assets/js/config.js"></script>
 <script src="assets/js/common.js"></script>
 
@@ -14,11 +15,13 @@
 
 <script>
 	
-
+	document.addEventListener("resume", onResume, false);
+	function onResume() {
+		alert('resumindo');
+	}
 
  	$(document).ready( function() {
-		
-		alert('adicionado resumo');
+
         $('#lblTituloPagina').html('Localiza&ccedil;&atilde;o de Ve&iacute;culos');
         
         abrirCarregando('Carregando Veículos');
