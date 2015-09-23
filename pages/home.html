@@ -38,6 +38,7 @@
 			  	, LOGIN:localStorage.getItem('BTRAC_LOGIN')
 			  	, SENHA:localStorage.getItem('BTRAC_SENHA')	}
 			  , function(data){
+				  	$('.dv_listaVeiculos').remove();
 			  		$('#internal-page').append(data);
         
                     fecharCarregando();
