@@ -18,6 +18,11 @@
             if( localStorage.getItem('BTRAC_LOGIN') != null ){
                 proxima();
             }
+			
+			document.addEventListener("resume", onResume, false);
+			function onResume() {
+				alert('resumindo');
+			}
         </script>
     </head>
     <body id="body">
