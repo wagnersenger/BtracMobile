@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width">
         <link href="assets/css/login.css" rel="stylesheet" />
         <link href="assets/css/common.css" rel="stylesheet" />
+		<script src="assets/js/cordova.js"></script>
         <script src="assets/js/config.js"></script>
         <script src="assets/js/vendors/jquery.js"></script>
         <!--<script src="assets/js/vendors/zepto.min.js"></script>-->
@@ -19,7 +20,10 @@
                 proxima();
             }
 			
-			
+			document.addEventListener("resume", onResume, false);
+			function onResume() {
+				alert('resumindo');
+			}
         </script>
     </head>
     <body id="body">
