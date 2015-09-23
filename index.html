@@ -1,47 +1,33 @@
-<html id="html">
-    <head>
-        <title>Btrac, rastreamento de ve&iacute;culos</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width">
-        <link href="assets/css/login.css" rel="stylesheet" />
-        <link href="assets/css/common.css" rel="stylesheet" />
-		<script src="assets/js/cordova.js"></script>
-        <script src="assets/js/config.js"></script>
-        <script src="assets/js/vendors/jquery.js"></script>
-        <!--<script src="assets/js/vendors/zepto.min.js"></script>-->
-        <script src="assets/js/login.js"></script>
-        <script src="assets/js/common.js"></script>
-        <script>
-            function proxima(){
-                window.location = 'home.html';
-            }
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cordova Resume Example</title>
+    <script type="text/javascript" charset="utf-8" src="assets/js/cordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
 
-            if( localStorage.getItem('BTRAC_LOGIN') != null ){
-                proxima();
-            }
-			
-			document.addEventListener("resume", onResume, false);
-			function onResume() {
-				alert('resumindo');
-			}
-        </script>
-    </head>
-    <body id="body">
+    // Call onDeviceReady when Cordova is loaded.
+    //
+    // At this point, the document has loaded but cordova-2.2.0.js has not.
+    // When Cordova is loaded and talking with the native device,
+    // it will call the event `deviceready`.
+    //
+    function onLoad() {
+        document.addEventListener("deviceready", onDeviceReady, false);
+    }
 
-        <div class="login">
-            <form name="frmLogin" id="frmLogin">
-                <input type="text" name="LOGIN" id="LOGIN" placeholder="Usu&aacute;rio da sua conta Btrac">
-                <input type="password" name="SENHA" id="SENHA" placeholder="Senha da sua conta Btrac">
-                <button id="btnConectar" type="button">Conectar ao Btrac</button>
-            </form>
-            <label class="lb_error">Erro não especificado</label>
-        </div>
-        <div class="footer_login">Copyright 2014 BSoft, todos os direitos reservados</div>
-        
-        <div class="carregando" id="carregando"></div>
-        <div class="carregando_centro" id="carregando_centro">
-            <div style="margin:auto; width:20px; margin-top:28px; margin-bottom: 10px"><img src="assets/img/loading.gif" width="20px"></div>
-            <div style="margin:auto; font-size: 14px; text-align: center"><label id="carregando_item">Carregando</label></div>
-        </div>
-    </body>
+    // Cordova is loaded and it is now safe to make calls Cordova methods
+    //
+    function onDeviceReady() {
+        document.addEventListener("resume", onResume, false);
+    }
+
+    // Handle the resume event
+    //
+    function onResume() {
+    }
+
+    </script>
+  </head>
+  <body onload="onLoad()">
+  </body>
 </html>
