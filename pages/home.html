@@ -14,10 +14,12 @@
 
 <script>
 	
-	
+	function temporario(){
+		alert('temp');	
+	}
 
  	$(document).ready( function() {
-
+		setInterval(temporario, 10000);
         $('#lblTituloPagina').html('Localiza&ccedil;&atilde;o de Ve&iacute;culos');
         
         abrirCarregando('Carregando Veículos');
