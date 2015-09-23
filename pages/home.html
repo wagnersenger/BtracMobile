@@ -19,11 +19,20 @@
 	}
 
  	$(document).ready( function() {
-		setInterval(temporario, 10000);
+		
         $('#lblTituloPagina').html('Localiza&ccedil;&atilde;o de Ve&iacute;culos');
         
-        abrirCarregando('Carregando Veículos');
+        consultarPosicoes();
+			  
+		gMaps = new GoogleMaps();
+ 		gMaps.htmlId = 'map';
+ 		gMaps.initialize();
 
+    });
+	
+	function consultarPosicoes(){
+		abrirCarregando('Carregando Veículos');
+		
 		$.post( _HOST+'/admin/veiculos/getVeiculos.php'
 			  , { EMPRESA_ID: localStorage.getItem('BTRAC_EMPRESA_ID')
 			  	, LOGIN:localStorage.getItem('BTRAC_LOGIN')
@@ -34,13 +43,10 @@
                     fecharCarregando();
                     
                     getNextLocation();
+					
+					setTimeout(consultarPosicoes, 30000);
 			  });
-			  
-		gMaps = new GoogleMaps();
- 		gMaps.htmlId = 'map';
- 		gMaps.initialize();
-
-    });
+	}
 
     var currentMarkerLocation = 0;
     function getNextLocation(){
