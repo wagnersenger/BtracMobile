@@ -31,6 +31,32 @@ and open the template in the editor.
     display: none;
 }
 
+.carregandoBranco{
+	position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    opacity: 0.8;
+    filter: alpha(opacity=40);
+    z-index: 9998;
+    display: ;
+}
+
+.carregandoCentroBranco{
+    position: absolute;
+    top: 30%;
+    width: 80%;    
+    height: 200px;
+    margin-left:10%;
+    background-color: #fff;
+
+    z-index: 9999;
+    border-radius: 10px;
+    color:#FFF;
+    display: ;
+}
+
 .carregando_centro{
     position: absolute;
     top: 40%;
@@ -154,13 +180,14 @@ and open the template in the editor.
     font-size: 12px;
     font-weight: bold;
     height: auto;
-    padding: 18px 0 0 8px;
+    padding:18px 4px 0 4px !important;
     width: 40px;
+	text-align:center;
 }
 
 .veiculoIconeBus, .veiculoIconeTruck, .veiculoIconeBoat{
 	width:30px;
-	padding:10px 0px;
+	padding:6px 0px;
 	float: right;
 }
 
@@ -169,12 +196,12 @@ and open the template in the editor.
 }
 
 .veiculoIconeTruck{
-    margin:7px 8px;	
+    margin:1px 8px;	
 }
 .veiculoIconeCar{
-    margin:13px 8px;
+    margin:8px 8px;
 	width:30px;
-	padding:8px 0px;
+	padding:5px 0px;
 	float: right;
 }
 
@@ -333,6 +360,7 @@ select #veiculo_id{
     width: 100%;
     height: 30px;
     color: #FFF;
+	font-weight:bold;
 }
 
 .td_data{
@@ -361,4 +389,12 @@ span{
 
 .m10{
     margin: 10px;
+}
+
+.novaVersao{
+	
+}
+
+.btnAtualizarAPP{
+	
 }

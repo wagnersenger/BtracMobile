@@ -14,7 +14,9 @@
 		$.post( _HOST+'/admin/veiculos/getListaVeiculos.php'
 			  , { EMPRESA_ID: localStorage.getItem('BTRAC_EMPRESA_ID')
 			  	, LOGIN:localStorage.getItem('BTRAC_LOGIN')
-			  	, SENHA:localStorage.getItem('BTRAC_SENHA')	}
+			  	, SENHA:localStorage.getItem('BTRAC_SENHA')
+				, VERSION: _CURRENT_VERSION
+				}
 			  , function(data){
 			  		$('#internal-page').append(data);
                     fecharCarregando();

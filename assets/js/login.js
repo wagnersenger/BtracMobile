@@ -7,7 +7,6 @@ $(document).ready(function(){
 			$.post( _HOST+'/control/validaLogin.php'
 				  , $('#frmLogin').serialize()
 				  , function(data){
-
 				  		v_obj = JSON.parse(data);
 				  		
 				  	    if(v_obj.error == true){

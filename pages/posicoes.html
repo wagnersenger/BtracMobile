@@ -68,6 +68,7 @@
     	$.post(_HOST+'/admin/veiculos/getVeiculosOptions.php'
  			  ,{  LOGIN:localStorage.getItem('BTRAC_LOGIN')
 			  	, SENHA:localStorage.getItem('BTRAC_SENHA')
+				, VERSION: _CURRENT_VERSION
  			  	, EMPRESA_ID: localStorage.getItem('BTRAC_EMPRESA_ID') }
  			  , function(data){
 	 			  	$('#veiculo_id').html(data);
@@ -91,6 +92,7 @@
 				  , { EMPRESA_ID: localStorage.getItem('BTRAC_EMPRESA_ID')
 			  	    , LOGIN:localStorage.getItem('BTRAC_LOGIN')
 				  	, SENHA:localStorage.getItem('BTRAC_SENHA')
+					, VERSION: _CURRENT_VERSION
 				  	, VEICULO_ID: $('#veiculo_id').val()
 				  	, INICIO: p_inicio
 				   	, LIMIT: 30
