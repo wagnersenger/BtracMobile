@@ -6,7 +6,17 @@ $(document).ready(function(){
 			
 			//alert(_HOST+'/control/validaLogin.php');
 			alert($('#frmLogin').serialize());
-			$.post( 'http://192.168.146.128:8083/1.0.4/control/validaLogin.php'
+			
+			$.ajax({
+			  method: "POST",
+			  url: 'http://192.168.146.128:8083/1.0.4/control/validaLogin.php',
+			  data: { name: "John", location: "Boston" }
+			})
+			  .done(function( msg ) {
+				alert( "Data Saved: " + msg );
+			  });
+			
+			/*$.post( 'http://192.168.146.128:8083/1.0.4/control/validaLogin.php'
 				  , $('#frmLogin').serialize()
 				  , function(data){
 					  	alert(data);
@@ -29,7 +39,7 @@ $(document).ready(function(){
 				  	    	window.location = 'home.html';
 				  	    }
 				    }
-				  );
+				  );*/
 
 		}
 
