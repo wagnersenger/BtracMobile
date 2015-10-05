@@ -31,7 +31,10 @@ $(document).ready(function(){
 						}
 					  },
 				  error: function(jqXHR, textStatus, errorThrown){
-						alert('ERRO: '+textStatus);
+						alert('ERRO: '+textStatus+' - '+errorThrown);
+						$('.lb_error').css('display','block');
+							$('.lb_error').html(errorThrown);
+						fecharCarregando();
 					  }
 				});
 
