@@ -4,9 +4,9 @@ $(document).ready(function(){
 		if( $('#LOGIN').val().trim() != '' && $('#SENHA').val().trim() != '' ){
 			abrirCarregando('Verificando Login');
 			
-			alert(_HOST+'/control/validaLogin.php');
+			//alert(_HOST+'/control/validaLogin.php');
 			alert($('#frmLogin').serialize());
-			$.post( _HOST+'/control/validaLogin.php'
+			$.post( 'http://192.168.146.128:8083/1.0.4/control/validaLogin.php'
 				  , $('#frmLogin').serialize()
 				  , function(data){
 					  	alert(data);
