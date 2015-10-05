@@ -1,4 +1,4 @@
-var _HOST = 'http://mobile.btrac.com.br';
+var _HOST_URL = 'http://mobile.btrac.com.br/';
 //var _HOST_URL = 'http://192.168.146.128:8083/';
 var _CURRENT_VERSION = '1.0.4';
 var _GMAPS_KEY = 'AIzaSyABBAEz0olIUCgvbZlCSuAPwkq8brNQXd8';
