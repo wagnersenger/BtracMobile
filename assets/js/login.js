@@ -9,7 +9,7 @@ $(document).ready(function(){
 			
 			$.ajax({
 			  method: "POST",
-			  url: 'http://192.168.146.128:8083/1.0.4/control/validaLogin.php',
+			  url: 'http://192.168.146.128:8083/control/validaLogin.php',
 			  data: { name: "John", location: "Boston" }
 			})
 			  .done(function( msg ) {
