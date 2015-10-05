@@ -4,22 +4,10 @@ $(document).ready(function(){
 		if( $('#LOGIN').val().trim() != '' && $('#SENHA').val().trim() != '' ){
 			abrirCarregando('Verificando Login');
 			
-			//alert(_HOST+'/control/validaLogin.php');
-			alert($('#frmLogin').serialize());
-			
-			$.ajax({
-			  method: "POST",
-			  url: 'http://192.168.146.128:8083/control/validaLogin.php',
-			  data: { name: "John", location: "Boston" }
-			})
-			  .done(function( msg ) {
-				alert( "Data Saved: " + msg );
-			  });
-			
-			/*$.post( 'http://192.168.146.128:8083/1.0.4/control/validaLogin.php'
+			$.post( _HOST+'/control/validaLogin.php'
 				  , $('#frmLogin').serialize()
 				  , function(data){
-					  	alert(data);
+
 				  		v_obj = JSON.parse(data);
 				  		
 				  	    if(v_obj.error == true){
@@ -39,7 +27,7 @@ $(document).ready(function(){
 				  	    	window.location = 'home.html';
 				  	    }
 				    }
-				  );*/
+				  );
 
 		}
 

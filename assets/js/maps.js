@@ -6,8 +6,7 @@ function GoogleMaps(){
 	this.htmlId = 'map';
 	this.map = null;
 	this.markers = Array();
-	this.markersReference = Array();
-	this.dataMarkers = Array();
+	this.markersReference = Array()
 	this.latLng = Array();
 	this.markerIcon = '';
     this.markerSize = { x: 22, y: 40 };
@@ -43,8 +42,6 @@ function GoogleMaps(){
 			
 			this.markers.push(marker);
 			this.latLng.push(myLatlng);
-			
-			this.dataMarkers.push({marker: marker, latLng: myLatlng, title: p_title});
 			
 			return marker;
 		}
@@ -83,17 +80,6 @@ function GoogleMaps(){
 	GoogleMaps.prototype.changePositionMarkerByIndex = function(i, lat, lng){
 		vlatLng = new google.maps.LatLng(lat, lng);
 		this.markers[i].setPosition(vlatLng);
-	}
-	
-	GoogleMaps.prototype.changePositionMarkerTitle = function(p_title, p_lat, p_lng){
-		for(i=0; i<this.dataMarkers.length; i++){
-			if( this.dataMarkers[i].title == p_title ){
-				vlatLng = new google.maps.LatLng(p_lat, p_lng);
-				
-				this.dataMarkers[i].marker.setPosition(vlatLng);
-				this.latLng[i] = vlatLng;
-			}
-		}
 	}
 	
 	GoogleMaps.prototype.changePositionMarker = function(marker, lat, lng){
