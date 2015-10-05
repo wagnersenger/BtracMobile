@@ -5,7 +5,7 @@ $(document).ready(function(){
 			abrirCarregando('Verificando Login');
 			
 			alert(_HOST+'/control/validaLogin.php');
-			
+			alert($('#frmLogin').serialize());
 			$.post( _HOST+'/control/validaLogin.php'
 				  , $('#frmLogin').serialize()
 				  , function(data){
