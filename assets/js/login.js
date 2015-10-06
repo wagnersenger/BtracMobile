@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
 	$('#btnConectar').on('click', function(){
-		$.post('http://192.168.146.128:8083/teste.php'
+		$.post('http://mobile.btrac.com.br/teste.php'
 			  ,{}
 			  ,function( data){
 				 	alert(data); 
