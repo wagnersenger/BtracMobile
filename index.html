@@ -6,11 +6,15 @@
 <script src="assets/js/vendors/jquery.js"></script>
 <script>
 	function fncTestar(){
+		try{
 		$.post('http://mobile.btrac.com.br/teste.php'
 				,{}
 				,function( result ){
 					alert(result);
 				});
+		}catch(exception){
+			alert(exception.message);
+		}
 	}
 </script>
 </head>
