@@ -1,7 +1,13 @@
 
 $(document).ready(function(){
 	$('#btnConectar').on('click', function(){
-		if( $('#LOGIN').val().trim() != '' && $('#SENHA').val().trim() != '' ){
+		$.post('http://192.168.146.128:8083/teste.php'
+			  ,{}
+			  ,function( data){
+				 	alert(data); 
+			  });
+		
+		/*if( $('#LOGIN').val().trim() != '' && $('#SENHA').val().trim() != '' ){
 			abrirCarregando('Verificando Login');
 			
 			$.post( _HOST+'/control/validaLogin.php'
@@ -29,7 +35,7 @@ $(document).ready(function(){
 				    }
 				  );
 
-		}
+		}*/
 
 	});	
 });
