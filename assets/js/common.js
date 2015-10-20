@@ -4,6 +4,12 @@
  * and open the template in the editor.
  */
  var intervalFechamento;
+ 
+ if(commomInterval)
+ 	clearInterval(commomInterval);
+	
+ var commomInterval = null;
+ 
 function abrirCarregando(v_texto){
     document.getElementById('carregando').style.display = 'block';
     document.getElementById('carregando_centro').style.display = 'block';

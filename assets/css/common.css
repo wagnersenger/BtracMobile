@@ -139,22 +139,24 @@ and open the template in the editor.
     
 }
 
-.veiculoIconeBus{
-    float: left;
-    margin:11px 8px;
+.imgVeiculoRight{
+    float:right;
 }
-
 .veiculoIconeTruck{
-    float: left;
-    margin:7px 8px;
+    margin:8px 8px;
+    float:right;
 }
 .veiculoIconeCar{
-    float: left;
-    margin:13px 8px;
+    margin:11px 8px;
+    float:right;
+}
+.veiculoIconeBus{    
+    margin:11px 8px;
+    float:right;
 }
 
 .veiculoIconeBoat{
-    float: left;
+    float: right;
     margin:13px 8px;
 }
 
@@ -221,7 +223,7 @@ select #veiculo_id{
 .dataHora{
     float: left;
 /*    margin:15px 15px 15px 15px;
-*/  margin: 7px;
+*/  margin: 11px;
     margin-bottom: 0px;
 
 }
@@ -241,12 +243,24 @@ select #veiculo_id{
     padding-top: 2px;
 }
 
+.pt4{
+    padding-top: 4px;
+}
+
 .pt6{
     padding-top: 6px;
 }
 
 .h45{
     height: 45px;
+}
+
+.h50{
+    height: 50px;
+}
+
+.h55{
+    height: 55px;
 }
 
 .mt8{

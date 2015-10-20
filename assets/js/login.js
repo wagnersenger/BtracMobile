@@ -1,13 +1,7 @@
 
 $(document).ready(function(){
 	$('#btnConectar').on('click', function(){
-		$.post('http://mobile.btrac.com.br/teste.php'
-			  ,{}
-			  ,function( data){
-				 	alert(data); 
-			  });
-		
-		/*if( $('#LOGIN').val().trim() != '' && $('#SENHA').val().trim() != '' ){
+		if( $('#LOGIN').val().trim() != '' && $('#SENHA').val().trim() != '' ){
 			abrirCarregando('Verificando Login');
 			
 			$.post( _HOST+'/control/validaLogin.php'
@@ -35,7 +29,7 @@ $(document).ready(function(){
 				    }
 				  );
 
-		}*/
+		}
 
 	});	
 });

@@ -2,7 +2,6 @@
 <link href="/assets/css/localizacao.css" rel="stylesheet" />
 <script src="assets/js/config.js"></script>
 <script src="assets/js/common.js"></script>
-
 <div id="internal-page">
 	<div class="conteudoInterno">
 		<h3 class="titulo"><img src="assets/img/right.png" height="16" >Selecione um ve&iacute;culo:</h3>
@@ -19,27 +18,27 @@
 		<table border="0" class="tblData" cellpadding="2" cellspacing="1">
 			<tr>
 				<td>Placa:</td>
-				<td id="td_placa" class="td_data">AAA0000</td>
+				<td id="td_placa" class="td_data"></td>
 			</tr>
 			<tr>
 				<td>Data:</td>
-				<td id="td_data_hora" class="td_data">25/12/2014 09:10</td>
+				<td id="td_data_hora" class="td_data"></td>
 			</tr>
 			<tr>
 				<td>Cidade:</td>
-				<td id="td_cidade" class="td_data">25/12/2014 09:10</td>
+				<td id="td_cidade" class="td_data"></td>
 			</tr>
 			<tr>
 				<td>Próximo a:</td>
-				<td id="td_proximidade" class="td_data">25/12/2014 09:10</td>
+				<td id="td_proximidade" class="td_data"></td>
 			</tr>
 			<tr>
 				<td>Velocidade:</td>
-				<td id="td_velocidade" class="td_data">25/12/2014 09:10</td>
+				<td id="td_velocidade" class="td_data"></td>
 			</tr>
 			<tr>
 				<td>Situa&ccedil;&atilde;o:</td>
-				<td id="td_situacao" class="td_data">25/12/2014 09:10</td>
+				<td id="td_situacao" class="td_data"></td>
 			</tr>
 		</table>
 		
@@ -47,14 +46,24 @@
 
 	</div>
 </div>
-
+<form method="post" target="exec" id="frmAddresses" name="frmAddresses"  ></form>
 <script>
+	var totalEnderecos = 0;
+	var totalEnderecosConcluidos = 0;
+	var currentIndexPosition = 0;
+	var countLocations = 0;
+	
+	 if(commomInterval){
+ 		clearInterval(commomInterval);
+	 }
+
  	$(document).ready( function() {
         $('#lblTituloPagina').html('Posi&ccedil;&otilde;es de Ve&iacute;culos');
 
         abrirCarregando('Carregando Veículos');
 		getVeiculosOptions();
-        //getPosicoes(1);
+		
+		//getPosicoes(1);
     });
 
     function trocarVeiculo(){
@@ -68,7 +77,9 @@
     	$.post(_HOST+'/admin/veiculos/getVeiculosOptions.php'
  			  ,{  LOGIN:localStorage.getItem('BTRAC_LOGIN')
 			  	, SENHA:localStorage.getItem('BTRAC_SENHA')
- 			  	, EMPRESA_ID: localStorage.getItem('BTRAC_EMPRESA_ID') }
+ 			  	, EMPRESA_ID: localStorage.getItem('BTRAC_EMPRESA_ID')
+				, VERSION: _CURRENT_VERSION
+				}
  			  , function(data){
 	 			  	$('#veiculo_id').html(data);
 	 			  	fecharCarregando();
@@ -78,36 +89,40 @@
 
     var consultando = 0;
     function getPosicoes(p_inicio, p_continuacao){
-    	if(consultando == 0){
-    		consultando = 1;
+    	if( $('#veiculo_id').val() ){
+	    	if(consultando == 0){
+	    		consultando = 1;
 
-    		if(p_continuacao != 1)
-    			abrirCarregando('Buscando Posições');
+	    		if(p_continuacao != 1)
+	    			abrirCarregando('Buscando Posições');
 
-    		if(p_inicio > 0 )
-    			$('#internal-page').append('<div class="carregandoScroll"><img src="assets/img/loading.gif" height="16px">&nbsp;Carregando...</div>');
+	    		if(p_inicio > 0 )
+	    			$('#internal-page').append('<div class="carregandoScroll"><img src="assets/img/loading.gif" height="16px">&nbsp;Carregando...</div>');
 
-	    	$.post( _HOST+'/admin/veiculos/getPosicoes.php'
-				  , { EMPRESA_ID: localStorage.getItem('BTRAC_EMPRESA_ID')
-			  	    , LOGIN:localStorage.getItem('BTRAC_LOGIN')
-				  	, SENHA:localStorage.getItem('BTRAC_SENHA')
-				  	, VEICULO_ID: $('#veiculo_id').val()
-				  	, INICIO: p_inicio
-				   	, LIMIT: 30
-				  	}
-				  , function(data){
-				  		$('.carregandoScroll').remove();
-				  		$('#internal-page').append(data);
-	                    fecharCarregando();
+		    	$.post( _HOST+'/admin/veiculos/getPosicoes.php'
+					  , { EMPRESA_ID: localStorage.getItem('BTRAC_EMPRESA_ID')
+				  	    , LOGIN:localStorage.getItem('BTRAC_LOGIN')
+					  	, SENHA:localStorage.getItem('BTRAC_SENHA')
+						, VERSION: _CURRENT_VERSION
+					  	, VEICULO_ID: $('#veiculo_id').val()
+					  	, INICIO: p_inicio
+					   	, LIMIT: 30
+					  	}
+					  , function(data){
+					  		$('.carregandoScroll').remove();
+					  		$('#internal-page').append(data);
+		                    fecharCarregando();
 
-	                    consultando = 0;
-	                    getNextLocation();
-				  });
+		                    consultando = 0;
+							
+							getLocations();
+					  });
 
+	    	}
     	}
     }
 
-    function abrirMapa(p_veiculo_id, p_icon, p_latitude, p_longitude, p_placa, p_data, p_cidade, p_proximidade, p_velocidade, p_situacao, p_obj_div){
+    function abrirMapa(p_veiculo_id, p_icon, p_latitude, p_longitude, p_placa, p_data, p_cidade, p_proximidade, p_velocidade, p_situacao, p_obj_div, p_posicao_id){
     	document.getElementById('carregando').style.display = 'block';
     	document.getElementById('mapa').style.display = 'block';
 		
@@ -123,16 +138,15 @@
  		$('.carregando').css('height', $('#internal-page').height() );
 
  		//$('#scroll').css('overflow','hidden');
-		
  		document.getElementById('td_placa').innerHTML = p_placa;
  		document.getElementById('td_data_hora').innerHTML = p_data;
  		document.getElementById('td_cidade').innerHTML = p_cidade;
- 		document.getElementById('td_proximidade').innerHTML = p_proximidade;
+ 		document.getElementById('td_proximidade').innerHTML = document.getElementById('localizacao'+p_posicao_id).innerHTML;
  		document.getElementById('td_velocidade').innerHTML = p_velocidade+' km/h';
  		document.getElementById('td_situacao').innerHTML = p_situacao;
- 		
+		
  		v_obj = document.getElementById("positionMap");
-
+		
  		$('#scroll').css('overflow','hidden');
     	$('#mapa').offset({ top: 50 });
     	$('#positionMap').offset({ top: $('#mapa').offset().top });
@@ -144,5 +158,129 @@
     	document.getElementById('mapa').style.display = 'none';
     	$('#scroll').css('overflow','auto');
     }
+	
+	
+	function getLocations(){
+		i=0;
+
+		$( ".veiculo_coordenadas" ).each(function() {
+
+			if($( this ).attr('localizacao') == '0'){
+	
+				i++;
+				if(i > countLocations){
+					countLocations++;
+					
+					displayLocation($( this ).attr('lat'), $( this ).attr('long'), $( this ).val());
+					
+					return false;
+				}
+			}		
+		});	
+	}
+	
+	
+	function waitNextLocation(v_time){
+		setTimeout(getLocations, v_time);
+	}
+	
+	
+	function enviarAddresses(){
+		if( $('#frmAddresses').html() != '' ){
+			with(document.frmAddresses){						
+				$('#frmAddresses').append('<input type="hidden" name="EXECUCAO" value="6">');
+				$('#frmAddresses').append('<input type="hidden" name="LOGIN" value="'+localStorage.getItem('BTRAC_LOGIN')+'">');
+				$('#frmAddresses').append('<input type="hidden" name="SENHA" value="'+localStorage.getItem('BTRAC_SENHA')+'">');
+				$('#frmAddresses').append('<input type="hidden" name="VERSION" value="'+_CURRENT_VERSION+'">');
+				
+				$.post( _HOST+"/admin/veiculos/control.php"
+					  , $('#frmAddresses').serialize()
+					  , function(r) {});
+			}
+		}
+		$('#frmAddresses').html('');
+	}
+	
+	Adresses = Array();
+	var withKey = false;
+	
+	function displayLocation(latitude,longitude, posicao_id){
+		r = '';
+		
+		if(withKey)
+			var url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='+latitude+','+longitude+_GMAPS_ADDRESS_KEY;
+		else
+			var url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='+latitude+','+longitude;
+
+		$.ajax({
+		  url: url,
+		  dataType: 'json',
+		  async: true,
+		  success: function(data) {
+				
+					if(data.status == 'OK' ){
+						var address = data.results[0].address_components;			
+						
+						for (var j=0; j<address.length; j++){
+							if (address[j].types[0]=='locality'){
+								var cidade = address[j].long_name;								
+							}
+							if (address[j].types[0]=='route'){
+								var rua = address[j].long_name;
+							}
+							if (address[j].types[0]=='street_number'){
+								var numero = address[j].long_name;
+							}
+						}
+						
+						endereco = data.results[0].formatted_address;
+
+						if(!cidade){
+							for (var j=0; j<address.length; j++){
+								if (address[j].types[0]=='administrative_area_level_2'){
+									var cidade = address[j].long_name;
+									break;
+								}
+							}
+						}
+
+						$('#cidade'+posicao_id).html(cidade);
+						$('#localizacao'+posicao_id).html(endereco);
+	
+						$('#frmAddresses').append('<input type="hidden" name="POSICAO_ID[]" value="'+posicao_id+'"><input type="hidden" name="ADDRESS[]" value="'+data.results[0].formatted_address+'" ><input type="hidden" name="CITY[]" value="'+cidade+'" >');
+	
+						totalEnderecosConcluidos++;
+						if($( ".veiculo_coordenadas" ).size() == totalEnderecosConcluidos){
+							enviarAddresses();
+						}else{
+							waitNextLocation(200);
+						}
+						
+					}else{
+						enviarAddresses();
+						if(data.status == 'OVER_QUERY_LIMIT'){
+							countLocations--;
+							withKey = true;	
+						}
+						waitNextLocation(200);
+					}
+				
+				
+		  },
+		  error: function(){
+			enviarAddresses();
+			countLocations--;
+			withKey = true;	
+			
+			waitNextLocation(200);
+		  }
+		  
+		});
+	
+	};
+	
+	
+	
+
 
 </script>
