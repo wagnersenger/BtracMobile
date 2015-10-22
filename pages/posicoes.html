@@ -222,7 +222,7 @@
 						var address = data.results[0].address_components;			
 						
 						for (var j=0; j<address.length; j++){
-							if (address[j].types[0]=='locality'){
+							if (address[j].types[0]=='administrative_area_level_2'){
 								var cidade = address[j].long_name;								
 							}
 							if (address[j].types[0]=='route'){
@@ -237,7 +237,7 @@
 
 						if(!cidade){
 							for (var j=0; j<address.length; j++){
-								if (address[j].types[0]=='administrative_area_level_2'){
+								if (address[j].types[0]=='locality'){
 									var cidade = address[j].long_name;
 									break;
 								}

@@ -60,6 +60,10 @@
 		getVeiculosOptions();
         //getPosicoes(1);
     });
+	
+	if(commomInterval){
+ 		clearInterval(commomInterval);
+	 }
 
     function trocarVeiculo(){
     	$('.dv_listaVeiculos').remove();
@@ -72,7 +76,8 @@
     	$.post(_HOST+'/admin/veiculos/getVeiculosOptions.php'
  			  ,{  LOGIN:localStorage.getItem('BTRAC_LOGIN')
 			  	, SENHA:localStorage.getItem('BTRAC_SENHA')
- 			  	, EMPRESA_ID: localStorage.getItem('BTRAC_EMPRESA_ID') }
+ 			  	, EMPRESA_ID: localStorage.getItem('BTRAC_EMPRESA_ID')
+				, VERSION: _CURRENT_VERSION }
  			  , function(data){
 	 			  	$('#veiculo_id').html(data);
 	 			  	fecharCarregando();
@@ -96,6 +101,7 @@
 			  	    , LOGIN:localStorage.getItem('BTRAC_LOGIN')
 				  	, SENHA:localStorage.getItem('BTRAC_SENHA')
 				  	, VEICULO_ID: $('#veiculo_id').val()
+					, VERSION: _CURRENT_VERSION
 				  	, INICIO: p_inicio
 				   	, LIMIT: 30
 				  	}
